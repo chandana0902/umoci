@@ -95,7 +95,7 @@ GO_SRC = $(shell find . -type f -name '*.go')
 
 umoci: $(GO_SRC)
 	GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) build ${DYN_BUILD_FLAGS} -o $(BUILD_DIR)/$@ ${CMD}
-
+	PRINT(GOOS)
 umoci.static: $(GO_SRC)
 	env CGO_ENABLED=0 $(GO) build ${STATIC_BUILD_FLAGS} -o $(BUILD_DIR)/$@ ${CMD}
 
